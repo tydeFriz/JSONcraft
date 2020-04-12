@@ -1,0 +1,11 @@
+{
+	"name": "example_plant",
+	"type": "plant",
+	"stages": 3,
+	"textures": [
+		"example_plant_0.png",
+		"example_plant_1.png",
+		"example_plant_2.png"
+	],
+	"seed_texture": "example_plant_seed.png"
+}

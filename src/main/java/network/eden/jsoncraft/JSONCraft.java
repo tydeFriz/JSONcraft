@@ -13,9 +13,11 @@ import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import network.eden.jsoncraft.interpreteur.FileLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -44,6 +46,13 @@ public class JSONCraft
         // some preinit code
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+
+        //TODO: just testing
+        List<String> definitions = FileLoader.getAll();
+
+        for(String definition: definitions){
+            System.out.println(definitions);
+        }
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {

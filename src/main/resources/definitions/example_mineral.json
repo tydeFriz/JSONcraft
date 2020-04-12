@@ -1,0 +1,25 @@
+{
+	"name": "example_mineral",
+	"type": "mineral",
+	"hadness": 2,
+	"spawn": {
+		"min_depth": 5,
+		"max_depth": 64,
+		"attempts": 8,
+		"min_size": 4,
+		"max_size": 8
+	},
+	"tools_damage": {
+		"sword": 4,
+		"pickaxe": 3,
+		"axe": 3,
+		"shovel": 2,
+		"hoe": 1
+	},
+	"armor": {
+		"helmet": 5,
+		"chestplate": 7,
+		"leggings": 6,
+		"boots": 4
+	}
+}

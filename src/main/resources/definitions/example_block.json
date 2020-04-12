@@ -1,0 +1,6 @@
+{
+	"name": "example_block",
+	"type": "block",
+	"texture": "example_block.png"
+	"hardness": 1
+}

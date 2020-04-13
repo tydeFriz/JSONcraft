@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "jsoncraft:block/example_block"
+    }
+  }
+}

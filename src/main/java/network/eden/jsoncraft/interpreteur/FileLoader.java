@@ -18,7 +18,7 @@ public class FileLoader {
 
         List<File> filesInFolder = new ArrayList<>();
         try{
-            filesInFolder = Files.walk(Paths.get("/path/to/folder"))
+            filesInFolder = Files.walk(Paths.get("/main/java/network/eden/jsoncraft/resources/definitions/"))
                     .filter(Files::isRegularFile)
                     .map(Path::toFile)
                     .collect(Collectors.toList());

@@ -1,13 +1,20 @@
 package network.eden.jsoncraft;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLDedicatedServerSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import network.eden.jsoncraft.init.BlockInit;
-import network.eden.jsoncraft.init.ItemInit;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import network.eden.jsoncraft.init.ModItemGroups;
+import network.eden.jsoncraft.init.Registor;
 import network.eden.jsoncraft.interpreteur.FileLoader;
 import network.eden.jsoncraft.interpreteur.JsonInterpreter;
 import org.apache.logging.log4j.LogManager;
@@ -17,29 +24,28 @@ import org.apache.logging.log4j.Logger;
 @Mod(JSONCraft.MODID)
 public class JSONCraft
 {
-    public static JSONCraft instance;
+    //public static JSONCraft instance;
     public static final String MODID = "jsoncraft";
 
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
 
     public JSONCraft() {
-        instance = this;
+        //instance = this;
 
         JsonInterpreter.makeAll(FileLoader.getAll());
-
+        Registor.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        Registor.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
+/*
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::modSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::serverSetup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);*/
     }
 
     private void modSetup(final FMLCommonSetupEvent event)
     {
         //OreGenerator.setupOregen();
-
-        BlockInit.register(JsonInterpreter.blockDefinitions, FMLJavaModLoadingContext.get().getModEventBus());
-        ItemInit.register(JsonInterpreter.itemDefinitions, FMLJavaModLoadingContext.get().getModEventBus());
     }
 
     private void clientSetup(final FMLClientSetupEvent event)

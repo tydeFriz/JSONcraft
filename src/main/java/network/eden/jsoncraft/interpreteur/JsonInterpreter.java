@@ -1,8 +1,5 @@
 package network.eden.jsoncraft.interpreteur;
 
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import network.eden.jsoncraft.JSONCraft;
 import network.eden.jsoncraft.init.BlockDefinition;
 import network.eden.jsoncraft.init.Registor;
 import network.eden.jsoncraft.utils.BlockItemSupplier;

@@ -24,10 +24,10 @@ public class Registor {
             String name = entry.getValue().name;
             BLOCK_LIST.put(name, BLOCKS.register(name, EntryManager.BLOCK_FACTORIES.get(name)));
             ITEM_LIST.put(name, ITEMS.register(name, EntryManager.ITEM_FACTORIES.get(name)));
-        }/*
+        }
         for(Map.Entry<String, ItemDefinition> entry: EntryManager.ITEM_DEFINITIONS.entrySet()){
             String name = entry.getValue().name;
             ITEM_LIST.put(name, ITEMS.register(name, EntryManager.ITEM_FACTORIES.get(name)));
-        }*/
+        }
     }
 }

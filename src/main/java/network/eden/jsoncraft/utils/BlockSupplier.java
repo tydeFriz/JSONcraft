@@ -16,7 +16,7 @@ public class BlockSupplier implements Supplier<net.minecraft.block.Block> {
 
     @Override
     public Block get() {
-        return new Block(Block.Properties.create(Material.ROCK)
+        return new Block(Block.Properties.create(Material.EARTH)
                 .hardnessAndResistance(EntryManager.BLOCK_DEFINITIONS.get(name).hardness, EntryManager.BLOCK_DEFINITIONS.get(name).resistance)
                 .harvestLevel( EntryManager.BLOCK_DEFINITIONS.get(name).harvestLevel)
         );

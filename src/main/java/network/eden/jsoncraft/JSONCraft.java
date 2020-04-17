@@ -1,22 +1,14 @@
 package network.eden.jsoncraft;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLDedicatedServerSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import network.eden.jsoncraft.init.ModItemGroups;
 import network.eden.jsoncraft.init.Registor;
+import network.eden.jsoncraft.interpreteur.EntryManager;
 import network.eden.jsoncraft.interpreteur.FileLoader;
-import network.eden.jsoncraft.interpreteur.JsonInterpreter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -33,7 +25,7 @@ public class JSONCraft
     public JSONCraft() {
         //instance = this;
 
-        JsonInterpreter.makeAll(FileLoader.getAll());
+        EntryManager.makeAll(FileLoader.getAll());
         Registor.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         Registor.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
 /*

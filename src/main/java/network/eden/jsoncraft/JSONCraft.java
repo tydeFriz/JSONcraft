@@ -14,44 +14,40 @@ import org.apache.logging.log4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(JSONCraft.MODID)
-public class JSONCraft
-{
-    //public static JSONCraft instance;
-    public static final String MODID = "jsoncraft";
+public class JSONCraft {
 
-    // Directly reference a log4j logger.
-    private static final Logger LOGGER = LogManager.getLogger();
+	//public static JSONCraft instance;
+	public static final String MODID = "jsoncraft";
 
-    public JSONCraft() {
-        //instance = this;
+	// Directly reference a log4j logger.
+	private static final Logger LOGGER = LogManager.getLogger();
 
-        EntryManager.makeAll(FileLoader.getAll());
-        Registor.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        Registor.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
+	public JSONCraft() {
+		//instance = this;
+
+		EntryManager.makeAll(FileLoader.getAll());
+		Registor.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+		Registor.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
 /*
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::modSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::serverSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);*/
-    }
+	}
 
-    private void modSetup(final FMLCommonSetupEvent event)
-    {
-        //OreGenerator.setupOregen();
-    }
+	private void modSetup(final FMLCommonSetupEvent event) {
+		//OreGenerator.setupOregen();
+	}
 
-    private void clientSetup(final FMLClientSetupEvent event)
-    {
-        //BlockRenders.defineRenders();
-    }
+	private void clientSetup(final FMLClientSetupEvent event) {
+		//BlockRenders.defineRenders();
+	}
 
-    private void serverSetup(final FMLDedicatedServerSetupEvent event)
-    {
+	private void serverSetup(final FMLDedicatedServerSetupEvent event) {
 
-    }
+	}
 
-    private void enqueueIMC(final InterModEnqueueEvent event)
-    {
+	private void enqueueIMC(final InterModEnqueueEvent event) {
 
-    }
+	}
 }

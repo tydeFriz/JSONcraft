@@ -1,23 +1,28 @@
 package network.eden.jsoncraft.utils;
 
 import java.util.function.Supplier;
+import javax.annotation.Nonnull;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import network.eden.jsoncraft.init.BlockDefinition;
 import network.eden.jsoncraft.init.ModItemGroups;
 import network.eden.jsoncraft.init.Registor;
 
-public class BlockItemSupplier implements Supplier<Item> {
+public class BlockItemSupplier implements IRegistrableSupplier<Item> {
 
-	private String name;
+	private final BlockDefinition definition;
 
-	public BlockItemSupplier(String name) {
-		this.name = name;
+	public BlockItemSupplier(BlockDefinition definition) {
+		this.definition = definition;
 	}
 
+	@Nonnull
 	@Override
-	public Item get() {
-		return new BlockItem(
-				Registor.BLOCK_LIST.get(name).get(),
+	public Supplier<Item> makeSupplier(@Nonnull Registor registrar) {
+		return () -> new BlockItem(
+				registrar.getBlockRegistry(definition.name)
+						.orElseThrow(() -> new NullPointerException("Block registry '" + definition.name + "' not found!"))
+						.get(),
 				new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)
 		);
 	}

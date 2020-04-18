@@ -2,7 +2,6 @@ package network.eden.jsoncraft.init;
 
 import java.util.function.Supplier;
 import javax.annotation.Nonnull;
-import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -26,7 +25,7 @@ public class ModItemGroups {
 		}
 
 		@Override
-    @Nonnull
+		@Nonnull
 		public ItemStack createIcon() {
 			return iconSupplier.get();
 		}

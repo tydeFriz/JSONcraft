@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 
 public class ResourcesReader {
 
-	private static final String definitionsPath = "resources" + File.separator + "definitions";
+	private static final String definitionsPath = "definitions";
 
 	public static Optional<Set<String>> readDefinitions() {
 		return readInternalResources(definitionsPath);
@@ -26,7 +26,7 @@ public class ResourcesReader {
 
 	public static Optional<Set<String>> readInternalResources(String resourcesDir) {
 		try {
-			URI uri = Thread.currentThread().getClass().getResource(File.separator + resourcesDir).toURI();
+			URI uri = Thread.currentThread().getContextClassLoader().getResource(File.separator + resourcesDir).toURI();
 			Path myPath;
 			if (uri.getScheme().equals("jar")) {
 				FileSystem fileSystem = FileSystems.newFileSystem(uri, Collections.emptyMap());

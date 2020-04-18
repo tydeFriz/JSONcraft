@@ -8,11 +8,11 @@ import network.eden.jsoncraft.init.BlockDefinition;
 import network.eden.jsoncraft.init.ModItemGroups;
 import network.eden.jsoncraft.init.Registor;
 
-public class BlockItemSupplier implements IRegistrableSupplier<Item> {
+public class BlockItemSupplierMaker implements IRegistrableSupplierMaker<Item> {
 
 	private final BlockDefinition definition;
 
-	public BlockItemSupplier(BlockDefinition definition) {
+	public BlockItemSupplierMaker(BlockDefinition definition) {
 		this.definition = definition;
 	}
 

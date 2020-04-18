@@ -13,9 +13,9 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import network.eden.jsoncraft.init.BlockDefinition;
 import network.eden.jsoncraft.init.ItemDefinition;
-import network.eden.jsoncraft.utils.BlockItemSupplier;
-import network.eden.jsoncraft.utils.BlockSupplier;
-import network.eden.jsoncraft.utils.IRegistrableSupplier;
+import network.eden.jsoncraft.utils.BlockItemSupplierMaker;
+import network.eden.jsoncraft.utils.BlockSupplierMaker;
+import network.eden.jsoncraft.utils.IRegistrableSupplierMaker;
 
 public class EntryManager {
 
@@ -23,8 +23,8 @@ public class EntryManager {
 
 	private final Map<String, BlockDefinition> blockDefinitions;
 	private final Map<String, ItemDefinition> itemDefinitions;
-	private final Map<String, IRegistrableSupplier<Block>> blockFactories;
-	private final Map<String, IRegistrableSupplier<Item>> itemFactories;
+	private final Map<String, IRegistrableSupplierMaker<Block>> blockFactories;
+	private final Map<String, IRegistrableSupplierMaker<Item>> itemFactories;
 
 	public EntryManager() {
 		blockDefinitions = new HashMap<>();
@@ -52,14 +52,14 @@ public class EntryManager {
 							case "block":
 								BlockDefinition blockDefinition = jsonParser.fromJson(jsonObject, BlockDefinition.class);
 								blockDefinitions.put(name, blockDefinition);
-								blockFactories.put(name, new BlockSupplier(blockDefinition));
-								itemFactories.put(name, new BlockItemSupplier(blockDefinition));
+								blockFactories.put(name, new BlockSupplierMaker(blockDefinition));
+								itemFactories.put(name, new BlockItemSupplierMaker(blockDefinition));
 								break;
 							case "mineral":
 								BlockDefinition mineralDefinition = jsonParser.fromJson(jsonObject, BlockDefinition.class);
 								blockDefinitions.put(name, mineralDefinition);
-								blockFactories.put(name, new BlockSupplier(mineralDefinition));
-								itemFactories.put(name, new BlockItemSupplier(mineralDefinition));
+								blockFactories.put(name, new BlockSupplierMaker(mineralDefinition));
+								itemFactories.put(name, new BlockItemSupplierMaker(mineralDefinition));
 								break;
 							default:
 								System.err.format("The definition '%s' is of the unknown type '%s'", name, type);
@@ -87,7 +87,7 @@ public class EntryManager {
 	}
 
 	@Nullable
-	public IRegistrableSupplier<Block> getBlockFactory(String name) {
+	public IRegistrableSupplierMaker<Block> getBlockFactory(String name) {
 		return blockFactories.get(name);
 	}
 
@@ -102,7 +102,7 @@ public class EntryManager {
 	}
 
 	@Nullable
-	public IRegistrableSupplier<Item> getItemFactory(String name) {
+	public IRegistrableSupplierMaker<Item> getItemFactory(String name) {
 		return itemFactories.get(name);
 	}
 }

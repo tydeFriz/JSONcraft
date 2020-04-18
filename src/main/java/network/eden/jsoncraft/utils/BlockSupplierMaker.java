@@ -7,11 +7,11 @@ import net.minecraft.block.material.Material;
 import network.eden.jsoncraft.init.BlockDefinition;
 import network.eden.jsoncraft.init.Registor;
 
-public class BlockSupplier implements IRegistrableSupplier<net.minecraft.block.Block> {
+public class BlockSupplierMaker implements IRegistrableSupplierMaker<Block> {
 
 	private final BlockDefinition definition;
 
-	public BlockSupplier(BlockDefinition definition) {
+	public BlockSupplierMaker(BlockDefinition definition) {
 		this.definition = definition;
 	}
 

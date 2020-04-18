@@ -4,7 +4,7 @@ import java.util.function.Supplier;
 import javax.annotation.Nonnull;
 import network.eden.jsoncraft.init.Registor;
 
-public interface IRegistrableSupplier<T> {
+public interface IRegistrableSupplierMaker<T> {
 
 	/**
 	 * Generate a Supplier that uses that specific registrar
